@@ -12,6 +12,11 @@ namespace Managers
         private SmtpClient smtpClient;
         private MailAddress myMailAdress;
 
+        [Multiline]
+        [SerializeField] public string MessageBody;
+        [Multiline]
+        [SerializeField] public string MessageSubject;
+        
         public void LoginMail(string myMail, string myPassword, string myUserName, string smtpMailHost, int port)
         {
             try
@@ -35,16 +40,20 @@ namespace Managers
         }
 
 
-        public void SendMail(string usermail, string messageBody, string messageSubject)
-        {
+        public void SendMail(Match match)
+        {   
+            var userMail = match.UserName.Split(",")[0];
+            var matchMail = match.MatchName.Split(",")[0];
+            var matchName = match.MatchName.Split(",")[1];
+
+            MessageBody += $"\nYour match is: {matchName} and his/her mail {matchMail}";
             try
             {
-                
-                var to = new MailAddress(usermail);
+                var to = new MailAddress(userMail);
                 var message = new MailMessage(myMailAdress, to);
-                message.Body = messageBody;
+                message.Body = MessageBody;
                 message.BodyEncoding = System.Text.Encoding.UTF8;
-                message.Subject = messageSubject;
+                message.Subject = MessageSubject;
                 message.SubjectEncoding = System.Text.Encoding.UTF8;
                 
                 smtpClient.SendCompleted += SendCompletedCallback;
@@ -53,7 +62,7 @@ namespace Managers
 
             catch (Exception ep)
             {
-                Debug.LogError($"Sending to -> {usermail}  mail error message\n{ep.Message}");
+                Debug.LogError($"Sending to -> {userMail}  mail error message\n{ep.Message}");
             }
         }
 

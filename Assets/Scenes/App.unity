@@ -1390,7 +1390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &383939986
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1706,7 +1706,7 @@ GameObject:
   - component: {fileID: 454373260}
   - component: {fileID: 454373259}
   m_Layer: 5
-  m_Name: Random Generator
+  m_Name: Random Generator Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2550,10 +2550,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Random New Year Raffle Generator
+  m_text: New Year Draw Generator
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2577,7 +2577,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.55
+  m_fontSize: 34.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3008,8 +3008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ce3a3072a5413d8c52f623d8fd4e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SendMailButton: {fileID: 0}
-  SelectUserButton: {fileID: 0}
+  SendMailButton: {fileID: 2081452589}
+  SelectUserButton: {fileID: 383939987}
 --- !u!1 &1324262366
 GameObject:
   m_ObjectHideFlags: 0
@@ -4626,5 +4626,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67a5dddc897443d9312f0e16311d90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mailManager:
+    MessageBody: Happy new year! I hope it will be a better year than last year.
+    MessageSubject: New Year Draw Results
   randomManager:
     mailList: []

@@ -91,15 +91,9 @@ public class RandomManager
 
     public void SendMails()
     {
-        var user = matches[mailSendingIndex];
+        var match = matches[mailSendingIndex];
 
-        var userMail = user.UserName.Split(",")[0];
-        var matchMail = user.MatchName.Split(",")[0];
-        var matchName = user.MatchName.Split(",")[1];
-        ManagerContainer.Instance.mailManager.SendMail(
-            userMail,$"Your match is {matchName} and his/her mail address: {matchMail}. Give him/her your gift.\n !!!Happy new year!!! ",
-            "New Years Raffle Results"
-            );
+        ManagerContainer.Instance.mailManager.SendMail(match);
         mailSendingIndex++;
     }
 }

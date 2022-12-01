@@ -8,8 +8,8 @@ namespace Managers
         public static ManagerContainer Instance;
 
 
-        public MailManager mailManager;
-        public RandomManager randomManager;
+        public MailManager mailManager = new MailManager();
+        public RandomManager randomManager = new RandomManager();
 
         private void Awake()
         {
@@ -20,14 +20,7 @@ namespace Managers
 
             Instance = this;
 
-            CreateManagers();
         }
-
-
-        private void CreateManagers()
-        {
-            mailManager = new MailManager();
-            randomManager = new RandomManager();
-        }
+        
     }
 }
